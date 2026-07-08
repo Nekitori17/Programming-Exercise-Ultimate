@@ -3,7 +3,7 @@ using namespace std;
 using ll = long long;
 
 ll binPow(ll a, ll n, ll m) {
-  if (n == 0) return 1;
+  if (n == 0) return 1 % m;
 
   a %= m;
 

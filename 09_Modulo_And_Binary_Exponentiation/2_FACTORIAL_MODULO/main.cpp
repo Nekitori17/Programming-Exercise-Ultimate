@@ -16,7 +16,7 @@ int main() {
   
   ll ans = 1;
   for (ll i = 2; i <= n; i++)
-    ans = ((ans % MODULO) * (i % MODULO)) % MODULO;
+    ans = (ans * i) % MODULO;
 
   cout << ans;
 
