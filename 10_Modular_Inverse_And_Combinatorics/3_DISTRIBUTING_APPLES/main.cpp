@@ -28,17 +28,20 @@ int main() {
   freopen("output.out", "w", stdout);
 
   vector<ll> frac(MAXN + 1);
+  vector<ll> invFrac(MAXN + 1);
   frac[0] = 1;
   for (int i = 1; i <= MAXN; i++)
     frac[i] = frac[i - 1] * i % MODULO;
+
+  invFrac[MAXN] = binPow(frac[MAXN], MODULO - 2, MODULO);
+  for (int i = MAXN - 1; i >= 0; i--)
+    invFrac[i] = invFrac[i + 1] * (i + 1) % MODULO;
 
   ll x, y;
   cin >> x >> y;
 
   ll n = x + y - 1, k = y - 1;
-  cout << frac[n] * binPow(frac[k], MODULO - 2, MODULO) % MODULO *
-              binPow(frac[n - k], MODULO - 2, MODULO) % MODULO % MODULO
-       << "\n";
+  cout << frac[n] * invFrac[k] % MODULO * invFrac[n - k] % MODULO << "\n";
 
   return 0;
 };
