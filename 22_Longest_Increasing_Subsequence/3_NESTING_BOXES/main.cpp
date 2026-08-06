@@ -26,7 +26,7 @@ int main() {
 
   vector<ll> tail;
   for (pair<int, int> rect : rects) {
-    auto it = upper_bound(tail.begin(), tail.end(), rect.second);
+    auto it = lower_bound(tail.begin(), tail.end(), rect.second);
 
     if (it == tail.end())
       tail.push_back(rect.second);
