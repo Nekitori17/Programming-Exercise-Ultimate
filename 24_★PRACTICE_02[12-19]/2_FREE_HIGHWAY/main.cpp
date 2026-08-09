@@ -39,9 +39,9 @@ int main() {
     if (uw > dist[u][used])
       continue;
 
-    for (pair<int, int> edge : adj[u]) {
-      int v = edge.first;
-      int w = edge.second;
+    for (pair<ll, ll> edge : adj[u]) {
+      ll v = edge.first;
+      ll w = edge.second;
 
       ll vw = uw + w;
       ll vwc = uw;
@@ -65,7 +65,7 @@ int main() {
     }
   }
 
-  cout << dist[n][1];
+  cout << min(dist[n][0], dist[n][1]);
 
   return 0;
 };
