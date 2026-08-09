@@ -46,10 +46,10 @@ int main() {
   ll ans = 0;
   ll f = max(2LL, k - m), t = min(k - 1, n);
   for (ll i = f; i <= t; i++) {
-    ans += (C(n, i) * C(m, k - i)) % MOD;
+    ans = (ans + (C(n, i) * C(m, k - i)) % MOD) % MOD;
   }
 
-  cout << ans % MOD;
+  cout << ans;
 
   return 0;
 };
